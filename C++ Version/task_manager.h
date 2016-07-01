@@ -8,7 +8,7 @@
 //       Fix the Task object id, so that it is unique for each new task.
 //       Fix other bugs.
 
-// Note: - you cannot edit/change the TaskManager class
+// Note: - You cannot edit/change the TaskManager class directly. Think of it as a 3rd party library
 //       - You can create new objects, etc
 
 #ifndef __TaskManager__
@@ -23,7 +23,8 @@
 
 // This class cannot be edited directly
 class TaskManager {
-    std::vector<Task> _tasks;
+    protected:
+        std::vector<Task> _tasks;
 
     public:
         TaskManager() {}
