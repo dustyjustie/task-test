@@ -1,15 +1,21 @@
-# Todo: Alter the complete_tasks method so that it only calls 'complete' on
-#           non-completed task.
-#       Add a remove_task method that removes only one task by id
-#
-#       Upon calling complete() on a task, set _value of that task object to the number of occurrences of the
-#           string "CCN" (case in-sensitive) that appears in the task's name.
-#
-#       Fix the Task object id, so that it is unique for each new task.
-#       Fix other bugs.
+""" Todo:
+        - Alter the complete_tasks method so that it only calls 'complete' on
+            non-completed task.
+        - Add a remove_task method that removes only one task by id
 
-# Note: - You cannot edit/change the TaskManager class directly. Think of it as a 3rd party library
-#       - You can create new objects, etc
+        - Upon calling complete() on a task, set _value of that task object to the number of occurrences of the
+            string "CCN" (case in-sensitive) that appears in the task's name.
+
+        - Fix the Task object id, so that it is unique for each new task. (please consider scalability and
+            what else the Id could be used for)
+
+        - Fix other bugs and make improvements where you see fit
+        - Add error handling where you see fit
+
+    Note:
+        - You cannot edit/change the TaskManager class directly. Think of it as a 3rd party library
+        - You can create new objects, etc
+"""
 
 
 class Task(object):
@@ -33,7 +39,7 @@ class Task(object):
 
     @property
     def id(self):
-        return self._id
+        self._id
 
     @property
     def value(self):
@@ -44,18 +50,18 @@ class Task(object):
 class TaskManager(object):
 
     def __init__(self):
-        self.tasks = []
+        self._tasks = []
 
     def import_task(self, task):
-        self.tasks.append(task)
+        self._tasks.append(task)
 
     def complete_tasks(self):
-        if len(self.tasks) > 0:
-            if not all([task.is_completed for task in self.tasks]):
-                for task in self.tasks:
+        if len(self._tasks) > 0:
+            if not all([task.is_completed for task in self._tasks]):
+                for task in self._tasks:
                     task.complete()
                     print('task {name} completed'.format(name=task.name))
 
     def remove_tasks(self):
-        while len(self.tasks) > 0:
-            self.tasks.pop()
+        while len(self._tasks) > 0:
+            self._tasks.pop()

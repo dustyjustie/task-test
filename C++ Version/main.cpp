@@ -1,15 +1,21 @@
-// Todo: Alter the complete_tasks method so that it only calls 'complete' on
-//           non-completed task.
-//       Add a remove_task method that removes only one task by id
-//
-//       Upon calling Complete() on a task, set _value of that task object to the number of occurrences of the
-//          string "CCN" (case in-sensitive) that appears in the task's name.
-//
-//       Fix the Task object id, so that it is unique for each new task.
-//       Fix other bugs.
+/*  Todo:
+        - Alter the complete_tasks method so that it only calls 'complete' on
+            non-completed task.
+        - Add a remove_task method that removes only one task by id
 
-// Note: - You cannot edit/change the TaskManager class directly. Think of it as a 3rd party library
-//       - You can create new objects, etc
+        - Upon calling complete() on a task, set _value of that task object to the number of occurrences of the
+            string "CCN" (case in-sensitive) that appears in the task's name.
+
+        - Fix the Task object id, so that it is unique for each new task. (please consider scalability and
+            what else the Id could be used for)
+
+        - Fix other bugs and make improvements where you see fit
+        - Add error handling where you see fit
+
+    Note:
+        - You cannot edit/change the TaskManager class directly. Think of it as a 3rd party library
+        - You can create new objects, etc
+*/
 
 #include <limits>
 
