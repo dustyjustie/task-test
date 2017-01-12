@@ -17,10 +17,10 @@
         - You can create new objects, etc
 """
 
-from task_manager import  Task, TaskManager
+from task_manager import  Task, TaskManager, RefactoredTaskManager
 
 if __name__ == "__main__":
-    task_manager = TaskManager()
+    task_manager = RefactoredTaskManager()
     first_task = Task('!!nZ@xr>492CCN;SDRC2#6CcN_$5UcCNq]*m44AhW`')
     second_task = Task('g}~x?C*n9K|LccN_YEL@<=44jkc.dB-v{!#;7*[[')
     third_task = Task('ekCcN,h9=!B46)j6acCN;`n68M+2ZR2CCn^:CUw')

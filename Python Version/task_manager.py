@@ -20,14 +20,20 @@
 
 class Task(object):
 
+
+    counter = 0
+
     def __init__(self, name):
-        self._id = 0
+        self._id = Task.counter
         self._name = name
         self._value = None
         self._completed = False
+        Task.counter += 1
 
     def complete(self):
-        _completed = True
+        if self.is_completed is False:
+            self._completed = True
+            self._value = self.name.lower().count("ccn")
 
     @property
     def is_completed(self):
@@ -37,9 +43,6 @@ class Task(object):
     def name(self):
         return self._name
 
-    @property
-    def id(self):
-        self._id
 
     @property
     def value(self):
@@ -65,3 +68,23 @@ class TaskManager(object):
     def remove_tasks(self):
         while len(self._tasks) > 0:
             self._tasks.pop()
+            print('Removing all tasks')
+
+class RefactoredTaskManager(TaskManager):
+
+    def complete_tasks(self):
+        if len(self._tasks) > 0:
+            if not all([task.is_completed for task in self._tasks]):
+                for task in self._tasks:
+                    if not task.is_completed:
+                        task.complete()
+                        print('task {name} completed'.format(name=task.name))
+                    else:
+                        print('requested task already completed')
+
+    def remove_task(self, id):
+        while len(self._tasks) > 0:
+            for task in self.tasks:
+                if task.id == id:
+                    self.tasks.remove(task)
+                    print ('removing task {task}'.format(task=task.id))
